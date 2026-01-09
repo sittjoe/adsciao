@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIAO CIAO MX | VIP OFERTAS Growth System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1b1612;
+      --ink-2: #3d342c;
+      --ink-3: #5b5249;
+      --paper: #fbf7f1;
+      --cream: #f3eadf;
+      --mist: #efe3d4;
+      --gold: #c7a75a;
+      --bronze: #b07a5c;
+      --line: #e3d7c8;
+      --shadow: 0 18px 40px rgba(27, 22, 18, 0.12);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(1200px 600px at 8% -10%, rgba(199, 167, 90, 0.25) 0%, rgba(199, 167, 90, 0) 60%),
+        radial-gradient(900px 500px at 95% 10%, rgba(176, 122, 92, 0.2) 0%, rgba(176, 122, 92, 0) 55%),
+        linear-gradient(180deg, #fdf9f4 0%, #f3ede4 100%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(rgba(27, 22, 18, 0.06) 1px, transparent 1px);
+      background-size: 26px 26px;
+      opacity: 0.4;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      height: calc(100vh - 48px);
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f2d79c, var(--gold));
+      display: grid;
+      place-items: center;
+      font-family: "Fraunces", serif;
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+    }
+
+    .logo h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-family: "Fraunces", serif;
+    }
+
+    .logo small {
+      display: block;
+      color: var(--ink-3);
+      font-size: 0.7rem;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .nav-section {
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-size: 0.65rem;
+      color: var(--ink-3);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .nav-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--ink-2);
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-size: 0.84rem;
+    }
+
+    .nav-link:hover {
+      background: #fff;
+      border-color: var(--line);
+    }
+
+    .nav-link.active {
+      background: #fff;
+      border-color: var(--gold);
+      color: var(--ink);
+      box-shadow: 0 10px 20px rgba(199, 167, 90, 0.18);
+    }
+
+    .nav-link .num {
+      background: var(--mist);
+      color: var(--ink-2);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+    }
+
+    .main {
+      padding: 12px 20px 80px 0;
+      max-width: 1200px;
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+      animation: fadeUp 0.6s ease;
+    }
+
+    .page-header {
+      margin: 10px 0 20px;
+    }
+
+    .page-header h2 {
+      margin: 0 0 6px;
+      font-family: "Fraunces", serif;
+      font-size: 1.85rem;
+    }
+
+    .page-header p {
+      margin: 0;
+      color: var(--ink-3);
+      max-width: 700px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .card.glow {
+      border: 1px solid rgba(199, 167, 90, 0.6);
+      box-shadow: 0 20px 50px rgba(199, 167, 90, 0.18);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .hero-title {
+      font-family: "Fraunces", serif;
+      font-size: 1.6rem;
+      margin: 6px 0 10px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.74rem;
+      color: var(--ink-2);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--ink-3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-top: 6px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 10px;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--mist);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .step-card h4 {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .step-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      line-height: 1.4;
+    }
+
+    .copy-block {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .copy-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .copy-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .copy-tag {
+      background: var(--mist);
+      color: var(--ink-2);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.66rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .copy-tag.hot {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .copy-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .copy-btn.copied {
+      background: #2f9e5f;
+      color: #fff;
+    }
+
+    .copy-content {
+      background: #fbfaf8;
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 0.9rem;
+      color: var(--ink-2);
+      white-space: pre-wrap;
+      line-height: 1.55;
+    }
+
+    .copy-block.small .copy-content {
+      font-size: 0.85rem;
+    }
+
+    .copy-all-btn {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      color: var(--ink-3);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-size: 0.7rem;
+    }
+
+    td {
+      color: var(--ink-2);
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: var(--ink-2);
+    }
+
+    .checklist li {
+      padding-left: 20px;
+      margin-bottom: 8px;
+      position: relative;
+      font-size: 0.88rem;
+    }
+
+    .checklist li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.55s ease forwards;
+    }
+
+    .stagger > *:nth-child(1) { animation-delay: 0.04s; }
+    .stagger > *:nth-child(2) { animation-delay: 0.08s; }
+    .stagger > *:nth-child(3) { animation-delay: 0.12s; }
+    .stagger > *:nth-child(4) { animation-delay: 0.16s; }
+    .stagger > *:nth-child(5) { animation-delay: 0.2s; }
+    .stagger > *:nth-child(6) { animation-delay: 0.24s; }
+    .stagger > *:nth-child(7) { animation-delay: 0.28s; }
+    .stagger > *:nth-child(8) { animation-delay: 0.32s; }
+
+    .scroll-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: none;
+      color: var(--ink);
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 12px;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .logo {
+        flex: 1 1 100%;
+      }
+
+      .nav-section {
+        display: none;
+      }
+
+      .nav-link {
+        background: #fff;
+        border-color: var(--line);
+        white-space: nowrap;
+      }
+
+      .main {
+        padding: 10px 0 80px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .step-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stagger > * {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-mark">CC</div>
+        <div>
+          <h1>CIAO CIAO MX</h1>
+          <small>VIP OFERTAS SYSTEM</small>
+        </div>
+      </div>
+
+      <nav>
+        <div class="nav-section">Inicio</div>
+        <a href="#overview" class="nav-link active" data-section="overview">Visión General</a>
+        <a href="#funnel" class="nav-link" data-section="funnel">Funnel Paso a Paso</a>
+        <a href="#setup" class="nav-link" data-section="setup">Config Meta Ads</a>
+        <a href="#cookies" class="nav-link" data-section="cookies">Cookies & Tracking</a>
+        <a href="#audiences" class="nav-link" data-section="audiences">Audiencias</a>
+        <a href="#creative" class="nav-link" data-section="creative">Creativos</a>
+
+        <div class="nav-section">Copys</div>
+        <a href="#copies" class="nav-link" data-section="copies">Copies <span class="num">12</span></a>
+        <a href="#headlines" class="nav-link" data-section="headlines">Headlines <span class="num">12</span></a>
+        <a href="#descriptions" class="nav-link" data-section="descriptions">Descripciones <span class="num">8</span></a>
+        <a href="#emotions" class="nav-link" data-section="emotions">Prompts Emoción <span class="num">8</span></a>
+
+        <div class="nav-section">IA</div>
+        <a href="#prompts-producto" class="nav-link" data-section="prompts-producto">IA Producto <span class="num">8</span></a>
+        <a href="#prompts-lifestyle" class="nav-link" data-section="prompts-lifestyle">IA Lifestyle <span class="num">8</span></a>
+        <a href="#prompts-emocional" class="nav-link" data-section="prompts-emocional">IA Emocional <span class="num">8</span></a>
+
+        <div class="nav-section">WhatsApp</div>
+        <a href="#whatsapp" class="nav-link" data-section="whatsapp">Quick Replies <span class="num">12</span></a>
+        <a href="#qualify" class="nav-link" data-section="qualify">Filtro & Etiquetas</a>
+        <a href="#ops" class="nav-link" data-section="ops">Operación & KPI</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      
+      <section id="overview" class="active">
+        <div class="page-header">
+          <h2>VIP Growth System</h2>
+          <p>Estrategia completa para crecer el grupo <strong>Ciaociao.mx VIP OFERTAS</strong> con compradores reales: anuncios, filtros, mensajes y seguimiento.</p>
+        </div>
+
+        <div class="hero-grid stagger">
+          <div class="card glow">
+            <span class="eyebrow">Objetivo principal</span>
+            <div class="hero-title">Más compradores reales, menos curiosos.</div>
+            <p>Click-to-WhatsApp con filtro y aprobación. Curaduría diaria de Oro 14K con descuentos reales y pago flexible.</p>
+            <div class="pill-row">
+              <span class="pill">Acceso por invitación</span>
+              <span class="pill">Grupo silencioso</span>
+              <span class="pill">Link fijo</span>
+              <span class="pill">5 ofertas diarias</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="eyebrow">Radar actual</span>
+            <div class="stat-grid">
+              <div class="stat">
+                <span>Miembros hoy</span>
+                <strong>382</strong>
+              </div>
+              <div class="stat">
+                <span>Meta diaria</span>
+                <strong>+10</strong>
+              </div>
+              <div class="stat">
+                <span>Presupuesto</span>
+                <strong>$2,000 MXN</strong>
+              </div>
+              <div class="stat">
+                <span>Capacidad chats</span>
+                <strong>100/día</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2 stagger">
+          <div class="card">
+            <span class="eyebrow">Propuesta de valor</span>
+            <ul class="checklist">
+              <li>Oro 14K real con certificado y garantía de por vida.</li>
+              <li>Descuento típico 30–50% sobre precio regular.</li>
+              <li>Apartado $3,000–$5,000.</li>
+              <li>Hasta 90 días para pagar (flexible).</li>
+              <li>Envío gratis asegurado en todo México.</li>
+              <li>Curaduría diaria: anillos, aretes, pulseras, collares, tennis.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="eyebrow">Accesos clave (copiar/pegar)</span>
+            <div class="copy-block small">
+              <div class="copy-head">
+                <div class="copy-title">Keyword de acceso</div>
+                <button class="copy-btn">Copiar</button>
+              </div>
+              <div class="copy-content">GRUPOVIP</div>
+            </div>
+            <div class="copy-block small">
+              <div class="copy-head">
+                <div class="copy-title">Link del grupo</div>
+                <button class="copy-btn">Copiar</button>
+              </div>
+              <div class="copy-content">https://chat.whatsapp.com/BGABXpvngWcKAmPQ6B7SdF</div>
+            </div>
+            <div class="copy-block small">
+              <div class="copy-head">
+                <div class="copy-title">Mensaje prellenado WA</div>
+                <button class="copy-btn">Copiar</button>
+              </div>
+              <div class="copy-content">Hola, quiero acceso al grupo VIP de ofertas en Oro 14K.
+Mi palabra clave es GRUPOVIP.</div>
+            </div>
+            <div class="copy-block small">
+              <div class="copy-head">
+                <div class="copy-title">Descripción sugerida del grupo</div>
+                <button class="copy-btn">Copiar</button>
+              </div>
+              <div class="copy-content">Ciaociao.mx VIP OFERTAS
+Grupo silencioso: solo admin publica.
+5 ofertas diarias en Oro 14K con descuento real.
+Apartado $3,000–$5,000 | hasta 90 días.
+Envío gratis asegurado en todo México.
+Acceso con filtro y aprobación.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="funnel">
+        <div class="page-header">
+          <h2>Funnel Paso a Paso</h2>
+          <p>Ruta limpia para filtrar y aprobar solo compradores reales.</p>
+        </div>
+
+        <div class="step-grid stagger">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <h4>Anuncio → Mensaje</h4>
+            <p>Campaña Mensajes (WhatsApp). CTA: “Escribe GRUPOVIP”.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h4>Bienvenida + Filtro</h4>
+            <p>2–3 preguntas: rango, categoría, tiempo de compra.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <h4>Score & Etiqueta</h4>
+            <p>Etiqueta A/B/C según intención y presupuesto.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <h4>Aprobación + Link</h4>
+            <p>Envío del link solo si califica.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">5</div>
+            <h4>Seguimiento</h4>
+            <p>Mensaje de bienvenida + preferencias para ofertas.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">6</div>
+            <h4>Retargeting</h4>
+            <p>Impacta visitantes y chats no aprobados.</p>
+          </div>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-head">
+            <div class="copy-title">CTA exacto para anuncios</div>
+            <span class="copy-tag hot">TOP</span>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">Acceso VIP a ofertas de Oro 14K.
+Escribe “GRUPOVIP” para solicitar tu lugar.</div>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-head">
+            <div class="copy-title">Mensaje prellenado en WhatsApp</div>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">Hola, quiero acceso al grupo VIP de ofertas en Oro 14K.
+Mi palabra clave es GRUPOVIP.</div>
+        </div>
+      </section>
+
+      <section id="setup">
+        <div class="page-header">
+          <h2>Config Meta Ads (Orden recomendado)</h2>
+          <p>Estructura optimizada para Click-to-WhatsApp con filtro.</p>
+        </div>
+
+        <div class="grid-2 stagger">
+          <div class="card">
+            <span class="eyebrow">Campaña</span>
+            <table>
+              <tr>
+                <th>Objetivo</th>
+                <td>Mensajes → WhatsApp</td>
+              </tr>
+              <tr>
+                <th>Optimización</th>
+                <td>Conversaciones iniciadas</td>
+              </tr>
+              <tr>
+                <th>Presupuesto</th>
+                <td>$2,000 MXN/día</td>
+              </tr>
+              <tr>
+                <th>Ubicaciones</th>
+                <td>Advantage+ (excluir Audience Network si baja calidad)</td>
+              </tr>
+            </table>
+          </div>
+          <div class="card">
+            <span class="eyebrow">Distribución de presupuesto</span>
+            <ul class="checklist">
+              <li>60% Prospecting (audiencia amplia + intereses).</li>
+              <li>25% Retargeting (7/14/30 días web + IG/FB 90 días).</li>
+              <li>15% Testing (nuevos creativos y hooks).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-2 stagger" style="margin-top: 16px;">
+          <div class="card">
+            <span class="eyebrow">Ad Set base</span>
+            <ul class="checklist">
+              <li>Edad 25–55 (70% mujeres / 30% hombres).</li>
+              <li>Ciudades: CDMX, MTY, GDL, PUE, QRO + resto MX.</li>
+              <li>Optimizar a mensajes de calidad (filtrar en WhatsApp).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="eyebrow">Reglas de escalado</span>
+            <ul class="checklist">
+              <li>Si CPL estable 3 días → subir 20% presupuesto.</li>
+              <li>Si baja calidad → refrescar creativos antes de subir.</li>
+              <li>Rotar 3–5 creativos activos por semana.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copy-block" style="margin-top: 16px;">
+          <div class="copy-head">
+            <div class="copy-title">Naming convention (copiar/pegar)</div>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">Campaña: CCMX_WA_GRUPOVIP_Prospecting_Q1
+AdSet: LAL1%_Compradores_25-55
+Ad: VideoUGC_OfertaDiaria_01</div>
+        </div>
+      </section>
+
+      <section id="cookies">
+        <div class="page-header">
+          <h2>Cookies & Tracking (Pixel + CAPI)</h2>
+          <p>Captura datos para retargeting y lookalikes sin perder calidad.</p>
+        </div>
+
+        <div class="grid-2 stagger">
+          <div class="card">
+            <span class="eyebrow">Checklist técnico</span>
+            <ul class="checklist">
+              <li>Pixel activo en Shopify + Advanced Matching.</li>
+              <li>Conversions API activo con deduplicación (event_id).</li>
+              <li>AEM: priorizar Purchase, InitiateCheckout, ViewContent.</li>
+              <li>Dominio verificado en Business Manager.</li>
+              <li>Consent banner y política de cookies actualizada.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="eyebrow">Eventos clave</span>
+            <table>
+              <tr>
+                <th>Evento</th>
+                <th>Uso</th>
+              </tr>
+              <tr>
+                <td>ViewContent</td>
+                <td>Retargeting 7/14 días</td>
+              </tr>
+              <tr>
+                <td>AddToCart</td>
+                <td>Audiencia alta intención</td>
+              </tr>
+              <tr>
+                <td>InitiateCheckout</td>
+                <td>Retargeting agresivo</td>
+              </tr>
+              <tr>
+                <td>Purchase</td>
+                <td>Lookalikes y valor</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="copy-block" style="margin-top: 16px;">
+          <div class="copy-head">
+            <div class="copy-title">UTM template para anuncios</div>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">utm_source=meta&utm_medium=paid_social&utm_campaign=ccmx_grupovip_q1&utm_content={{ad.name}}&utm_term={{adset.name}}</div>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-head">
+            <div class="copy-title">Eventos offline recomendados</div>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">QualifiedLead (cuando apruebas acceso)
+Purchase (cuando se concreta venta)</div>
+        </div>
+      </section>
+
+      <section id="audiences">
+        <div class="page-header">
+          <h2>Audiencias (Calidad > Volumen)</h2>
+          <p>Segmentos listos para atraer compradores reales y evitar curiosos.</p>
+        </div>
+
+        <div class="grid-3 stagger">
+          <div class="card">
+            <span class="eyebrow">Lookalike</span>
+            <ul class="checklist">
+              <li>LAL 1% compradores (Purchase).</li>
+              <li>LAL 1–3% leads calificados.</li>
+              <li>LAL por valor (si hay datos suficientes).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="eyebrow">Intereses</span>
+            <ul class="checklist">
+              <li>Joyería fina, oro, anillos de compromiso.</li>
+              <li>Lujo accesible, moda premium.</li>
+              <li>Regalos, aniversarios, bodas.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="eyebrow">Retargeting</span>
+            <ul class="checklist">
+              <li>Website 7/14/30 días.</li>
+              <li>IG/FB engagers 90 días.</li>
+              <li>Carrito 30 días (alta intención).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copy-block" style="margin-top: 16px;">
+          <div class="copy-head">
+            <div class="copy-title">Exclusiones clave</div>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">Excluir compradores últimos 30 días
+Excluir miembros actuales del grupo
+Excluir usuarios con “no califica” en CRM/WA</div>
+        </div>
+      </section>
+
+      
+      <section id="creative">
+        <div class="page-header">
+          <h2>Creativos que atraen compradores reales</h2>
+          <p>Mezcla UGC + editorial premium + testimonios para escalar sin perder calidad.</p>
+        </div>
+
+        <div class="grid-3 stagger">
+          <div class="card">
+            <span class="eyebrow">Ángulos ganadores</span>
+            <ul class="checklist">
+              <li>Acceso privado tipo “maison”: lista curada de ofertas.</li>
+              <li>Calidad real: Oro 14K + garantía de por vida.</li>
+              <li>Descuento inteligente: 30–50% sin perder lujo.</li>
+              <li>Pago flexible: apartado y 90 días.</li>
+              <li>Regalo premium: aniversarios y momentos clave.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="eyebrow">Formatos</span>
+            <ul class="checklist">
+              <li>Video 9:16 con macro detalles (15–30s).</li>
+              <li>Imagen 4:5 con texto corto (3–5 palabras).</li>
+              <li>Carrusel: 3–5 piezas en oferta.</li>
+              <li>Testimonio real con overlay editorial.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="eyebrow">Guía editorial CIAO CIAO MX</span>
+            <ul class="checklist">
+              <li>Paleta: onyx, marfil y champagne gold.</li>
+              <li>Fondos: mármol negro, terciopelo, laca.</li>
+              <li>Luz: softbox + negativo, contraste alto.</li>
+              <li>Tipografía: serif elegante, pocas palabras.</li>
+              <li>Enfoque: macro acabado + espacio negativo.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-head">
+            <div class="copy-title">Brief editorial 1 línea</div>
+            <span class="copy-tag hot">TOP</span>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">Editorial high jewelry para CIAO CIAO MX: onyx + gold, macro detalle, lujo silencioso, luz suave con contraste.</div>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-head">
+            <div class="copy-title">UGC 15s (premium)</div>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">[Plano 1] Macro de pieza sobre mármol negro (2s)
+[Plano 2] Persona: “Entré al grupo privado de CIAO CIAO MX.” (4s)
+[Plano 3] Muestra 2–3 ofertas del día (3s)
+[Plano 4] “Oro 14K, apartado desde $3,000 y hasta 90 días.” (3s)
+[Plano 5] CTA en pantalla: “Escribe GRUPOVIP” (3s)</div>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-head">
+            <div class="copy-title">UGC 30s (premium)</div>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">[Hook] “Si valoras joyería fina, esto es para ti.”
+[Beneficio] “Grupo privado con 5 ofertas diarias en Oro 14K.”
+[Prueba] Mostrar 3 piezas reales en video.
+[Facilidad] “Aparta desde $3,000 y paga en 90 días.”
+[Cierre] “Escribe GRUPOVIP y solicita acceso.”</div>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-head">
+            <div class="copy-title">Testimonio 12s</div>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">“Me aprobaron el acceso y encontré la pieza exacta.
+Calidad real y trato directo.
+Si buscas ofertas serias, pide acceso.”</div>
+        </div>
+      </section>
+
+
+      
+      <section id="copies">
+        <div class="page-header">
+          <h2>Copies para Meta Ads</h2>
+          <p>Textos listos para copiar/pegar. Rota 3–5 por semana.</p>
+        </div>
+
+        <button class="copy-all-btn" data-copy-all="copies">Copiar TODOS los copies</button>
+
+        <div class="stagger">
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">1. Acceso Maison</div>
+              <span class="copy-tag hot">TOP</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">CIAO CIAO MX abre su lista privada.
+Oro 14K seleccionado, 5 ofertas diarias con 30–50% menos.
+Aparta con $3,000–$5,000 y paga hasta 90 días.
+Envío asegurado a todo México + garantía de por vida.
+
+Acceso por invitación.
+Escribe “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">2. Curaduría de Atelier</div>
+              <span class="copy-tag hot">TOP</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Joyería de atelier, no masivo.
+Oro 14K con certificado y garantía de por vida.
+Precios de miembro para quienes valoran calidad real.
+
+Pide acceso con “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">3. Private Sale Diario</div>
+              <span class="copy-tag">Exclusivo</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Private sale diario: 5 piezas curadas, stock real.
+Grupo silencioso (solo admin publica).
+Acceso con filtro para mantener calidad.
+
+Escribe “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">4. Pago Flexible</div>
+              <span class="copy-tag">Financiamiento</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">No necesitas pagar todo hoy.
+Aparta desde $3,000–$5,000 y completa en hasta 90 días.
+Ideal para piezas de alto valor en Oro 14K.
+
+Manda “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">5. Regalo Premium</div>
+              <span class="copy-tag">Regalo</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Regalos que hablan de buen gusto.
+Anillos, aretes, pulseras, collares y tennis en Oro 14K con descuento real.
+Envío asegurado en México.
+
+Solicita acceso con “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">6. Confianza Total</div>
+              <span class="copy-tag">Confianza</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Oro 14K, garantía de por vida y certificado.
+Envío gratis asegurado a todo México.
+Atención directa por WhatsApp.
+
+Escribe “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">7. Ahorro Inteligente</div>
+              <span class="copy-tag">Valor</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Descuento real 30–50% sin bajar calidad.
+Curaduría diaria de piezas de alto valor.
+Acceso privado, sin spam.
+
+Escribe “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">8. Ofertas Diarias</div>
+              <span class="copy-tag">Diario</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Cinco ofertas nuevas cada día.
+Piezas seleccionadas, disponibilidad limitada.
+Acceso solo para compradores serios.
+
+Manda “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">9. Tennis & Clásicos</div>
+              <span class="copy-tag">Producto</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Tennis, anillos y collares con precio VIP.
+Oro 14K, acabados finos y garantía de por vida.
+Pago flexible y envío seguro.
+
+Escribe “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">10. Testimonio</div>
+              <span class="copy-tag">Prueba</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">“Entré al grupo por una oferta y encontré la pieza exacta.
+Calidad real y trato directo.”
+Si buscas joyería seria, pide acceso.
+
+Escribe “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">11. Minimal</div>
+              <span class="copy-tag">Directo</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Acceso privado a ofertas de Oro 14K.
+5 piezas diarias. Envío asegurado. Pago flexible.
+Solo miembros aprobados.
+
+Escribe “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">12. Legado</div>
+              <span class="copy-tag">Story</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">La joyería fina no es una compra rápida.
+Es una decisión con valor y duración.
+Si buscas piezas correctas a precio justo, este grupo es para ti.
+
+Manda “GRUPOVIP”.</div>
+          </div>
+        </div>
+      </section>
+
+
+      
+      <section id="headlines">
+        <div class="page-header">
+          <h2>Headlines (Titulares)</h2>
+          <p>Usa combinaciones cortas y claras.</p>
+        </div>
+
+        <button class="copy-all-btn" data-copy-all="headlines">Copiar TODOS los headlines</button>
+
+        <div class="grid-3 stagger">
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">1</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Acceso Maison a Oro 14K</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">2</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Lista privada de ofertas</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">3</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Curaduría diaria de 5 piezas</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">4</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Descuento real 30–50%</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">5</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Aparta con $3,000–$5,000</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">6</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Pago flexible hasta 90 días</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">7</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Envío asegurado en México</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">8</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Garantía de por vida</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">9</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Acceso por invitación</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">10</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Club de compradores serios</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">11</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Tennis, anillos y collares</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">12</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Solicita acceso GRUPOVIP</div></div>
+        </div>
+      </section>
+
+
+      
+      <section id="descriptions">
+        <div class="page-header">
+          <h2>Descripciones cortas</h2>
+          <p>Para la línea de descripción del anuncio.</p>
+        </div>
+
+        <button class="copy-all-btn" data-copy-all="descriptions">Copiar TODAS las descripciones</button>
+
+        <div class="grid-2 stagger">
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">1</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Grupo silencioso: solo admin publica.</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">2</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Acceso con filtro y aprobación.</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">3</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Oro 14K con certificado.</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">4</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Descuento real 30–50%.</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">5</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Envío gratis asegurado.</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">6</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Apartado flexible 3–5 mil.</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">7</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Ofertas diarias curadas.</div></div>
+          <div class="copy-block small"><div class="copy-head"><div class="copy-title">8</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Atención directa por WhatsApp.</div></div>
+        </div>
+      </section>
+
+
+      
+      <section id="emotions">
+        <div class="page-header">
+          <h2>Prompts de emoción (para generar nuevos copies)</h2>
+          <p>Usa estos prompts en ChatGPT o tu IA favorita para variar el mensaje.</p>
+        </div>
+
+        <div class="stagger">
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">Exclusividad editorial</div>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Escribe 5 variaciones de anuncios en español para CIAO CIAO MX (Oro 14K) con tono editorial tipo revista de moda. Enfatiza acceso por invitación y curaduría diaria. CTA: “Escribe GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">Atelier y artesanía</div>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Genera 5 copies que destaquen el trabajo artesanal, acabados finos y Oro 14K. Menciona certificado y garantía de por vida. CTA: “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">Legado y herencia</div>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Crea 5 anuncios que hablen de piezas que duran toda la vida y se heredan. Mantén tono premium y sobrio. CTA: “Escribe GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">Ahorro inteligente</div>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Genera 5 copies con enfoque en descuento real 30–50% sin perder lujo ni calidad. CTA: “Escribe GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">Regalo inolvidable</div>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Escribe 5 copies que conecten joyería fina con regalos de aniversario, logro o auto-regalo. Tono elegante. CTA: “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">Logro personal</div>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Crea 5 copies que evoquen logro personal y autoestima: “me lo merezco”. Oro 14K, pago flexible, acceso privado. CTA: “GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">Urgencia elegante</div>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Genera 5 anuncios con urgencia suave: ofertas diarias, stock limitado, sin presión agresiva. CTA: “Escribe GRUPOVIP”.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head">
+              <div class="copy-title">Confianza y seguridad</div>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <div class="copy-content">Escribe 5 anuncios centrados en confianza: Oro 14K, garantía de por vida, envío asegurado y atención directa. CTA: “GRUPOVIP”.</div>
+          </div>
+        </div>
+      </section>
+
+
+      
+      
+      <section id="prompts-producto">
+        <div class="page-header">
+          <h2>Prompts IA - Producto (Oro 14K)</h2>
+          <p>Editorial Vogue con detalle extremo y branding CIAO CIAO MX.</p>
+        </div>
+
+        <button class="copy-all-btn" data-copy-all="prompts-producto">Copiar TODOS los prompts</button>
+
+        <div class="stagger">
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">1. Anillo hero macro</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">Editorial high jewelry product shot for CIAO CIAO MX, 14k gold ring hero on black obsidian slab, controlled specular highlights, micro-texture visible, focus stacking for razor sharp detail, medium format camera, 100mm macro, f/8, ISO 100, 1/160s.
+Lighting: large softbox at 45 degrees, negative fill on opposite side, subtle rim light for edge separation.
+Composition: minimal with generous negative space, magazine cover aesthetic, 4:5.
+Branding: matte black jewelry box with gold-foil CIAO CIAO MX logo and matching brand card, logo legible but subtle.
+Color grade: onyx, champagne gold, warm ivory.
+Negative prompt: low-res, watermark, messy reflections, fingerprints, extra text, distortion.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">2. Aretes sobre pedestal</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX Vogue-inspired editorial product photo, pair of 14k gold earrings on sculptural ivory pedestal, black velvet backdrop, crisp shadow falloff, rich metal glow, medium format 85mm, f/4.
+Lighting: top softbox + gentle kicker to define silhouette, negative fill for contrast.
+Branding: CIAO CIAO MX logo embossed in gold on a matte black box in the background, softly out of focus.
+Style: museum-grade product styling, elegant negative space, 4:5.
+Negative prompt: harsh glare, clutter, unreadable logo, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">3. Tennis bracelet curva</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial luxury catalog, 14k gold tennis bracelet arranged in an S-curve on black silk, micro-sparkle controlled, elegant highlight line, 90mm macro, f/5.6.
+Lighting: diffused key + strip light for clean speculars, negative fill for depth.
+Branding: CIAO CIAO MX brand card with gold-foil logo placed at bottom edge, legible.
+Mood: high fashion magazine minimalism, 4:5.
+Negative prompt: noisy image, dull metal, dust, extra text, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">4. Collar en escultura</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX high jewelry editorial, 14k gold necklace draped over a sculptural stone form, moody spotlight, gentle bloom, rich shadow gradients, medium format 80mm, f/4.
+Lighting: soft key + subtle rim to separate from background.
+Branding: matte black CIAO CIAO MX box with gold logo placed behind sculpture, logo readable.
+Composition: dramatic vertical flow, Vogue-style luxury feature, 4:5.
+Negative prompt: overexposure, artifacts, fake text, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">5. Flat lay curado</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial flat lay, curated set of 14k gold rings, earrings, bracelet, necklace on black marble with subtle veining, top-down lighting with soft falloff, precise spacing, museum archive styling, 50mm lens, f/8.
+Branding: CIAO CIAO MX brand card and ribbon with gold-foil logo, tasteful placement.
+Palette: onyx, ivory, champagne gold.
+Negative prompt: clutter, busy background, watermark, low-res.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">6. Unboxing editorial</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial unboxing scene, matte black jewelry box with gold-foil CIAO CIAO MX logo, lid partially open revealing 14k gold necklace on ivory velvet, warm spotlight, soft shadows, cinematic depth, 50mm lens, f/2.8.
+Props: black tissue paper, minimal brand card, clean tabletop.
+Mood: Vogue product feature, gifting luxury, 4:5.
+Negative prompt: cheap materials, distorted logo, clutter, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">7. Macro de broche y sello</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX ultra-macro craftsmanship shot, 14k gold clasp with hallmark detail, micro-polish texture, focus stacking for ultra sharpness, 100mm macro, f/8, ISO 100.
+Lighting: precise strip light + soft fill to reveal metal grain.
+Branding: black tag with CIAO CIAO MX logo near clasp, legible.
+Aesthetic: technical luxury editorial, 4:5.
+Negative prompt: blur, noise, uneven lighting, fake text.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">8. Laca negra con reflejo</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial product scene, 14k gold bracelet on glossy black lacquer with mirror reflection, controlled highlights, deep shadows, minimal composition, medium format 90mm, f/4.
+Branding: CIAO CIAO MX embossed logo subtly etched on the lacquer tray, readable but discreet.
+Mood: silent luxury, Vogue-style minimalism, 4:5.
+Negative prompt: harsh glare, noisy image, extra text, watermark.</div>
+          </div>
+        </div>
+      </section>
+
+
+
+      
+      
+      <section id="prompts-lifestyle">
+        <div class="page-header">
+          <h2>Prompts IA - Lifestyle</h2>
+          <p>Editorial Vogue con estilo de alta joyería y narrativa premium.</p>
+        </div>
+
+        <button class="copy-all-btn" data-copy-all="prompts-lifestyle">Copiar TODOS los prompts</button>
+
+        <div class="stagger">
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">1. Retrato editorial con aretes</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX Vogue-inspired editorial portrait, sophisticated woman in black silk blouse, hair in elegant chignon, wearing 14k gold statement earrings, dramatic rim light outlining profile, deep black background, soft shadow gradients, 85mm lens, f/2.8.
+Branding: CIAO CIAO MX matte black box with gold-foil logo on a side table, subtly visible.
+Mood: high fashion, quiet power, 4:5.
+Negative prompt: harsh flash, plastic skin, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">2. Manos con anillo y revista</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial lifestyle, close-up of hands wearing a 14k gold ring resting on a fashion magazine and black marble table, soft window light, refined shadows, 50mm lens, f/2.8.
+Branding: CIAO CIAO MX brand card with gold-foil logo at the edge of the frame, legible.
+Mood: modern luxury, Vogue editorial still, 4:5.
+Negative prompt: clutter, messy nails, low-res.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">3. Noche de gala</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX high jewelry gala scene, elegant woman in black evening gown wearing 14k gold necklace and bracelet, warm bokeh lights, soft glamour, confident posture, 85mm lens, f/2.
+Branding: CIAO CIAO MX box softly blurred in the background with visible logo.
+Style: Vogue red carpet energy, 4:5.
+Negative prompt: over-saturation, harsh flash, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">4. Ritual frente al espejo</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial getting-ready scene, woman putting on 14k gold earrings in front of a vintage mirror, warm vanity lighting, soft glow, elegant interior, 50mm lens, f/2.
+Branding: CIAO CIAO MX jewelry box open on the vanity, gold-foil logo visible.
+Mood: intimate and refined, 4:5.
+Negative prompt: messy background, low quality, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">5. Collar sobre seda</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial close-up, layered 14k gold necklaces over an ivory silk blouse, soft directional light, delicate skin texture, minimal background, 85mm lens, f/2.8.
+Branding: CIAO CIAO MX brand card tucked near the collar, logo legible.
+Style: refined Vogue beauty detail, 4:5.
+Negative prompt: harsh glare, fake text, low-res.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">6. Regalo elegante</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX luxury gifting moment, hands exchanging a matte black jewelry box with gold-foil CIAO CIAO MX logo, warm candlelight, intimate dinner table, shallow depth of field, 50mm lens.
+Mood: Vogue storytelling, elegant and emotional, 4:5.
+Negative prompt: clutter, cheap materials, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">7. Editorial urbano nocturno</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial street-night portrait, model in tailored trench coat wearing 14k gold bracelet and rings, city bokeh, moody contrast, 85mm lens, f/1.8.
+Branding: CIAO CIAO MX brand tag attached to the bracelet, logo readable.
+Style: Vogue night editorial, 4:5.
+Negative prompt: neon overload, noise, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">8. Café de mañana</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial morning scene, woman holding a coffee cup, 14k gold bracelet catching soft sunlight, warm neutral palette, quiet luxury mood, 50mm lens, f/2.
+Branding: CIAO CIAO MX box subtly placed on the table, logo visible.
+Negative prompt: messy table, low-res, watermark.</div>
+          </div>
+        </div>
+      </section>
+
+
+
+      
+      
+      <section id="prompts-emocional">
+        <div class="page-header">
+          <h2>Prompts IA - Emocionales</h2>
+          <p>Storytelling editorial tipo Vogue con detalles de marca.</p>
+        </div>
+
+        <button class="copy-all-btn" data-copy-all="prompts-emocional">Copiar TODOS los prompts</button>
+
+        <div class="stagger">
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">1. Logro personal</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial achievement scene, woman in a minimalist office holding a 14k gold ring, soft daylight through blinds, calm confidence, medium format 80mm, f/2.8.
+Branding: CIAO CIAO MX jewelry box on desk, gold-foil logo legible.
+Mood: refined success, Vogue office editorial, 4:5.
+Negative prompt: clutter, harsh light, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">2. Aniversario íntimo</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX romantic editorial, candlelit dinner, close-up of hands with 14k gold bracelet touching, warm bokeh, cinematic glow, 85mm lens, f/1.8.
+Branding: CIAO CIAO MX box subtly placed on the table with visible logo.
+Mood: intimate luxury, 4:5.
+Negative prompt: overexposed, cheap props, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">3. Herencia madre e hija</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial heritage moment, mother placing a 14k gold necklace on daughter, warm soft light, intimate framing, focus on hands and jewelry, 50mm lens, f/2.
+Branding: CIAO CIAO MX brand card near the jewelry box, logo readable.
+Mood: timeless legacy, 4:5.
+Negative prompt: busy background, low-res, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">4. Viaje y elegancia</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial travel scene, woman by a hotel window wearing 14k gold earrings, soft morning light, calm luxury mood, 85mm lens, f/2.8.
+Branding: CIAO CIAO MX jewelry box on the window ledge, logo visible.
+Mood: quiet escape, 4:5.
+Negative prompt: clutter, harsh light, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">5. Auto-regalo</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial self-gift scene, woman admiring her 14k gold ring in a mirror, soft ambient light, serene expression, 50mm lens, f/2.
+Branding: CIAO CIAO MX box open on the vanity, logo visible.
+Mood: self-love and elegance, 4:5.
+Negative prompt: messy background, low-res, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">6. Calma y luz dorada</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial quiet morning, 14k gold bracelet catching golden hour light by the window, dust particles in the beam, minimal interior, 85mm lens, f/2.8.
+Branding: CIAO CIAO MX card subtly visible on the sill, logo legible.
+Mood: serene luxury, 4:5.
+Negative prompt: oversharp, noise, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">7. Confianza en el envío</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial trust scene, 14k gold jewelry resting on ivory tissue beside a secure shipping box, careful packaging, soft diffused light, 50mm lens.
+Branding: CIAO CIAO MX logo on the box, premium materials, logo readable.
+Mood: safe and premium, 4:5.
+Negative prompt: messy packaging, cheap look, watermark.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">8. Celebración elegante</div><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">CIAO CIAO MX editorial celebration, women clinking champagne glasses, one wearing 14k gold bracelet and rings, warm bokeh lights, cinematic atmosphere, 85mm lens, f/1.8.
+Branding: CIAO CIAO MX box on a side table, logo visible.
+Mood: refined celebration, 4:5.
+Negative prompt: harsh flash, clutter, watermark.</div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="whatsapp">
+        <div class="page-header">
+          <h2>Quick Replies WhatsApp Business</h2>
+          <p>Listos para copiar en Respuestas Rápidas. Flujo corto y claro.</p>
+        </div>
+
+        <button class="copy-all-btn" data-copy-all="whatsapp">Copiar TODAS las respuestas</button>
+
+        <div class="stagger">
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/bienvenida</div><span class="copy-tag">Inicio</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">¡Hola! 💎 Gracias por tu interés en CIAO CIAO MX.
+Nuestro grupo VIP es para personas que buscan joyería fina en Oro 14K.
+Para darte acceso necesito 2 preguntas rápidas. ¿Te parece?</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/filtro1</div><span class="copy-tag">Rango</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">1️⃣ ¿Qué rango de inversión tienes en mente?
+A) $10,000 - $20,000
+B) $20,000 - $40,000
+C) $40,000 o más
+(Solo responde con la letra)</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/filtro2</div><span class="copy-tag">Categoría</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">2️⃣ ¿Qué tipo de pieza te interesa más?
+A) Anillos
+B) Aretes
+C) Pulseras / Tennis
+D) Collares
+E) Varias opciones
+(Solo responde con la letra)</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/filtro3</div><span class="copy-tag">Tiempo</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">3️⃣ ¿En qué plazo te gustaría comprar?
+A) Esta semana
+B) En el próximo mes
+C) Más adelante
+(Solo responde con la letra)</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/aprobado</div><span class="copy-tag hot">Acceso</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">¡Listo! Tu perfil califica para el grupo VIP 🎉
+
+📍 5 ofertas diarias en Oro 14K
+📍 Descuentos reales 30–50%
+📍 Apartado desde $3,000–$5,000
+📍 Hasta 90 días para pagar
+📍 Envío gratis asegurado + garantía de por vida
+
+👉 Únete aquí: https://chat.whatsapp.com/BGABXpvngWcKAmPQ6B7SdF
+Tu solicitud será aprobada en menos de 24 hrs.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/noaplica</div><span class="copy-tag">No califica</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">Gracias por tu honestidad 🙏
+Por el momento, el grupo VIP está enfocado en piezas desde $10,000.
+Te invito a seguirnos en Instagram: @ciaociaomx
+¡Ojalá pronto podamos ayudarte!</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/recordatorio</div><span class="copy-tag">Follow-up</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">Hola 👋 ¿Sigues interesado/a en el grupo VIP de Oro 14K?
+Solo necesito tus respuestas para darte acceso.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/envio</div><span class="copy-tag">Info</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">Envío gratis y asegurado a todo México.
+Te compartimos guía y número de seguimiento al confirmar tu compra.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/apartado</div><span class="copy-tag">Info</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">El apartado es de $3,000–$5,000 según la pieza.
+Tienes hasta 90 días para completar el pago (somos flexibles).</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/garantia</div><span class="copy-tag">Info</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">Todas nuestras piezas son Oro 14K y tienen garantía de por vida.
+Se entregan con certificado.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/horario</div><span class="copy-tag">Horario</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">Nuestro horario de atención es de 9:00 am a 5:00 pm (lun–sáb).
+Te respondemos en cuanto estemos en línea.</div>
+          </div>
+
+          <div class="copy-block">
+            <div class="copy-head"><div class="copy-title">/bienvenida-grupo</div><span class="copy-tag">Post ingreso</span><button class="copy-btn">Copiar</button></div>
+            <div class="copy-content">¡Bienvenido/a al VIP! 💎
+Si me dices qué tipo de pieza buscas y tu rango aproximado, te aviso cuando salga una oferta ideal para ti.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="qualify">
+        <div class="page-header">
+          <h2>Filtro & Etiquetas (calidad del grupo)</h2>
+          <p>Reglas simples para aprobar rápido sin perder ventas.</p>
+        </div>
+
+        <div class="grid-2 stagger">
+          <div class="card">
+            <span class="eyebrow">Score rápido</span>
+            <table>
+              <tr>
+                <th>Score</th>
+                <th>Condición</th>
+                <th>Acción</th>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>B/C + compra esta semana o mes</td>
+                <td>Aprobar</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>A + interés claro</td>
+                <td>Aprobar + seguimiento</td>
+              </tr>
+              <tr>
+                <td>C</td>
+                <td>Sin rango o “solo viendo”</td>
+                <td>No aplicar</td>
+              </tr>
+            </table>
+          </div>
+          <div class="card">
+            <span class="eyebrow">Etiquetas sugeridas</span>
+            <ul class="checklist">
+              <li>VIP-A / VIP-B / VIP-C</li>
+              <li>Interés: Anillos, Aretes, Pulseras, Collares, Tennis</li>
+              <li>Motivo: Regalo, Personal, Evento</li>
+              <li>Estado: Seguimiento, No califica</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copy-block" style="margin-top: 16px;">
+          <div class="copy-head">
+            <div class="copy-title">Filtro express (1 mensaje)</div>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">Para darte acceso necesito 3 datos rápidos:
+1) Rango de inversión (A/B/C)
+2) Tipo de pieza (A/B/C/D/E)
+3) ¿En qué plazo quieres comprar? (A/B/C)
+
+Con eso te confirmo el acceso.</div>
+        </div>
+      </section>
+
+      <section id="ops">
+        <div class="page-header">
+          <h2>Operación & KPIs</h2>
+          <p>Checklist diario para mantener calidad y ritmo de crecimiento.</p>
+        </div>
+
+        <div class="grid-2 stagger">
+          <div class="card">
+            <span class="eyebrow">Rutina diaria</span>
+            <ul class="checklist">
+              <li>9:00–10:00 am: revisar nuevos chats y aplicar filtro.</li>
+              <li>12:00 pm: aprobar solicitudes pendientes.</li>
+              <li>3:00 pm: publicar 5 ofertas del día (en 2 bloques).</li>
+              <li>5:00 pm: último bloque de aprobación + seguimiento.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="eyebrow">KPIs meta</span>
+            <ul class="checklist">
+              <li>Costo por conversación: &lt; $200 MXN.</li>
+              <li>Tasa de aprobación: &gt; 50%.</li>
+              <li>Tiempo de respuesta: &lt; 30 min (horario).</li>
+              <li>Conversiones a compra: 8–12% mensual.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copy-block" style="margin-top: 16px;">
+          <div class="copy-head">
+            <div class="copy-title">Mensaje para reactivación</div>
+            <button class="copy-btn">Copiar</button>
+          </div>
+          <div class="copy-content">Hola 👋 Tenemos nuevas ofertas en Oro 14K esta semana.
+¿Quieres que te avise cuando salga algo en tu categoría?</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <button class="scroll-top" aria-label="Ir arriba">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const scrollBtn = document.querySelector(".scroll-top");
+
+    function showSection(id) {
+      sections.forEach(section => {
+        section.classList.toggle("active", section.id === id);
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.dataset.section === id);
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        showSection(link.dataset.section);
+      });
+    });
+
+    function normalizeText(text) {
+      const lines = text.replace(/\t/g, "  ").split("\n");
+      while (lines.length && lines[0].trim() === "") lines.shift();
+      while (lines.length && lines[lines.length - 1].trim() === "") lines.pop();
+      const indent = lines.reduce((min, line) => {
+        if (line.trim() === "") return min;
+        const match = line.match(/^(\s*)/);
+        return Math.min(min, match ? match[1].length : 0);
+      }, Infinity);
+      return lines.map(line => line.slice(indent)).join("\n").trim();
+    }
+
+    document.querySelectorAll(".copy-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const block = btn.closest(".copy-block");
+        const content = block ? block.querySelector(".copy-content") : null;
+        if (!content) return;
+        const text = normalizeText(content.innerText);
+        navigator.clipboard.writeText(text).then(() => {
+          const original = btn.textContent;
+          btn.textContent = "Copiado";
+          btn.classList.add("copied");
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove("copied");
+          }, 1200);
+        });
+      });
+    });
+
+    document.querySelectorAll("[data-copy-all]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const sectionId = btn.getAttribute("data-copy-all");
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+        const blocks = Array.from(section.querySelectorAll(".copy-content"));
+        const joined = blocks.map(block => normalizeText(block.innerText)).join("\n\n---\n\n");
+        navigator.clipboard.writeText(joined).then(() => {
+          const original = btn.textContent;
+          btn.textContent = "Copiado";
+          btn.classList.add("copied");
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove("copied");
+          }, 1200);
+        });
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      scrollBtn.classList.toggle("visible", window.scrollY > 240);
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
