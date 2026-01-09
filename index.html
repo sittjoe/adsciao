@@ -395,6 +395,63 @@
       font-size: 0.85rem;
     }
 
+    .ad-card {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(199, 167, 90, 0.35);
+      background: rgba(255, 255, 255, 0.94);
+    }
+
+    .ad-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .ad-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ad-label {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .ad-title {
+      margin: 4px 0 0;
+      font-family: "Fraunces", serif;
+      font-size: 1.2rem;
+    }
+
+    .ad-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 14px;
+    }
+
+    .ad-side {
+      display: grid;
+      gap: 12px;
+    }
+
+    .ad-card .copy-block {
+      margin-bottom: 0;
+    }
+
+    .copy-btn.secondary {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--ink-2);
+    }
+
     .copy-all-btn {
       background: #fff;
       border: 1px solid var(--line);
@@ -535,7 +592,8 @@
       .grid-2,
       .grid-3,
       .grid-4,
-      .step-grid {
+      .step-grid,
+      .ad-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -569,16 +627,8 @@
         <a href="#audiences" class="nav-link" data-section="audiences">Audiencias</a>
         <a href="#creative" class="nav-link" data-section="creative">Creativos</a>
 
-        <div class="nav-section">Copys</div>
-        <a href="#copies" class="nav-link" data-section="copies">Copies <span class="num">12</span></a>
-        <a href="#headlines" class="nav-link" data-section="headlines">Headlines <span class="num">12</span></a>
-        <a href="#descriptions" class="nav-link" data-section="descriptions">Descripciones <span class="num">8</span></a>
-        <a href="#emotions" class="nav-link" data-section="emotions">Prompts Emoción <span class="num">8</span></a>
-
-        <div class="nav-section">IA</div>
-        <a href="#prompts-producto" class="nav-link" data-section="prompts-producto">IA Producto <span class="num">8</span></a>
-        <a href="#prompts-lifestyle" class="nav-link" data-section="prompts-lifestyle">IA Lifestyle <span class="num">8</span></a>
-        <a href="#prompts-emocional" class="nav-link" data-section="prompts-emocional">IA Emocional <span class="num">8</span></a>
+        <div class="nav-section">Anuncios</div>
+        <a href="#ads" class="nav-link" data-section="ads">Anuncios completos <span class="num">12</span></a>
 
         <div class="nav-section">WhatsApp</div>
         <a href="#whatsapp" class="nav-link" data-section="whatsapp">Quick Replies <span class="num">12</span></a>
@@ -1000,539 +1050,812 @@ Si buscas ofertas serias, pide acceso.”</div>
         </div>
       </section>
 
-
-      
-      <section id="copies">
+      <section id="ads">
         <div class="page-header">
-          <h2>Copies para Meta Ads</h2>
-          <p>Textos listos para copiar/pegar. Rota 3–5 por semana.</p>
+          <h2>Anuncios completos</h2>
+          <p>Copy, headline, descripción y 4 prompts de imagen por anuncio.</p>
         </div>
 
-        <button class="copy-all-btn" data-copy-all="copies">Copiar TODOS los copies</button>
+        <button class="copy-all-btn" data-copy-all="ads">Copiar TODOS los anuncios</button>
 
         <div class="stagger">
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">1. Acceso Maison</div>
-              <span class="copy-tag hot">TOP</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-01">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 01</div>
+                <div class="ad-title">Acceso Maison</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag hot">TOP</span>
+                <button class="copy-btn secondary" data-copy-group="ad-01">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">CIAO CIAO MX abre su lista privada.
-Oro 14K seleccionado, 5 ofertas diarias con 30–50% menos.
-Aparta con $3,000–$5,000 y paga hasta 90 días.
-Envío asegurado a todo México + garantía de por vida.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">CIAO CIAO MX abre su lista privada.
+Oro 14K seleccionado con 5 ofertas diarias y 30-50% menos.
+Aparta con $3,000-5,000 y paga hasta 90 días.
+Envío gratis asegurado + garantía de por vida.
 
 Acceso por invitación.
-Escribe “GRUPOVIP”.</div>
+Escribe "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Acceso Maison a Oro 14K</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Acceso por invitación.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Producto: CIAO CIAO MX editorial high jewelry product shot, 14k gold ring hero on black obsidian slab, invitation card edge visible, controlled specular highlights, micro texture, medium format, 100mm macro, f/8.
+Lighting: large softbox 45 degrees, negative fill, thin rim.
+Composition: minimal with generous negative space, magazine cover, 4:5.
+Branding: matte black box with gold-foil CIAO CIAO MX logo.
+Negative prompt: low-res, watermark, fingerprints, extra text, distortion.
+
+2) Lifestyle: CIAO CIAO MX Vogue-inspired portrait, sophisticated woman in black silk blazer wearing 14k gold earrings, seated in a private lounge, soft spotlight, deep shadows, 85mm, f/2.8.
+Branding: brand card on side table, logo readable.
+Mood: invitation-only luxury, 4:5.
+Negative prompt: harsh flash, plastic skin, watermark.
+
+3) Emocional: CIAO CIAO MX editorial private appointment scene, gloved hands presenting a curated ring tray on velvet, soft directional light, intimate framing, 50mm, f/2.8.
+Branding: gold-foil logo on tray edge, subtle.
+Mood: concierge service, 4:5.
+Negative prompt: clutter, messy gloves, watermark.
+
+4) Packaging: CIAO CIAO MX invitation kit, matte black box with gold-foil logo plus sealed envelope on ivory paper, ribbon detail, soft top light, 50mm, f/4.
+Mood: exclusive access, 4:5.
+Negative prompt: cheap materials, glare, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">2. Curaduría de Atelier</div>
-              <span class="copy-tag hot">TOP</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-02">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 02</div>
+                <div class="ad-title">Curaduría de Atelier</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag hot">TOP</span>
+                <button class="copy-btn secondary" data-copy-group="ad-02">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">Joyería de atelier, no masivo.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">Joyería de atelier, no masivo.
 Oro 14K con certificado y garantía de por vida.
-Precios de miembro para quienes valoran calidad real.
+Curaduría diaria para compradores que valoran calidad real.
 
-Pide acceso con “GRUPOVIP”.</div>
+Pide acceso con "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Curaduría de atelier 14K</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Oro 14K con certificado.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Producto: CIAO CIAO MX atelier craftsmanship macro, 14k gold ring with fine tool marks resting on a jeweler bench, precise reflections, medium format, 100mm macro, f/8.
+Lighting: focused strip light with soft fill.
+Branding: CIAO CIAO MX hallmark tag near the ring.
+Mood: artisan precision, 4:5.
+Negative prompt: messy tools, blur, watermark.
+
+2) Lifestyle: CIAO CIAO MX editorial scene, hands polishing a 14k gold bracelet with cloth, warm workshop light, shallow depth, 50mm, f/2.8.
+Branding: matte black brand card on the bench, logo legible.
+Mood: crafted by hand, 4:5.
+Negative prompt: clutter, harsh glare, watermark.
+
+3) Emocional: CIAO CIAO MX boutique handover, artisan presenting a 14k gold necklace to a client across a marble counter, soft spotlight, 85mm, f/2.
+Branding: gold-foil logo on the box in frame.
+Mood: atelier intimacy, 4:5.
+Negative prompt: crowded background, watermark.
+
+4) Packaging: CIAO CIAO MX certificate set, matte black jewelry box with gold-foil logo plus certificate card and ribbon, clean tabletop, 50mm, f/4.
+Mood: verified quality, 4:5.
+Negative prompt: cheap paper, overexposure, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">3. Private Sale Diario</div>
-              <span class="copy-tag">Exclusivo</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-03">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 03</div>
+                <div class="ad-title">Private Sale Diario</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag">Exclusivo</span>
+                <button class="copy-btn secondary" data-copy-group="ad-03">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">Private sale diario: 5 piezas curadas, stock real.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">Private sale diario: 5 piezas curadas, stock real.
 Grupo silencioso (solo admin publica).
 Acceso con filtro para mantener calidad.
 
-Escribe “GRUPOVIP”.</div>
+Escribe "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">5 piezas curadas al día</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Grupo silencioso: solo admin publica.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Producto: CIAO CIAO MX editorial flat lay, curated set of five 14k gold pieces on black marble, precise spacing, top-down soft light, 50mm, f/8.
+Branding: gold-foil logo card at the edge, subtle.
+Mood: daily selection, 4:5.
+Negative prompt: clutter, busy background, watermark.
+
+2) Lifestyle: CIAO CIAO MX private selection scene, hands opening a velvet tray with 14k gold rings, warm side light, 50mm, f/2.8.
+Branding: logo on tray, legible.
+Mood: exclusive access, 4:5.
+Negative prompt: messy hands, glare, watermark.
+
+3) Emocional: CIAO CIAO MX editorial morning drop, curated jewelry on a dark tray next to a clean calendar page without text, soft window light, 85mm, f/2.8.
+Branding: matte black box with logo in frame.
+Mood: daily ritual, 4:5.
+Negative prompt: readable text, clutter, watermark.
+
+4) Packaging: CIAO CIAO MX lineup of five matte black boxes with gold-foil logos, one open showing a 14k gold bracelet, soft gradient light, 70mm, f/4.
+Mood: limited stock, 4:5.
+Negative prompt: cheap materials, glare, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">4. Pago Flexible</div>
-              <span class="copy-tag">Financiamiento</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-04">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 04</div>
+                <div class="ad-title">Pago Flexible</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag">Financiamiento</span>
+                <button class="copy-btn secondary" data-copy-group="ad-04">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">No necesitas pagar todo hoy.
-Aparta desde $3,000–$5,000 y completa en hasta 90 días.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">No necesitas pagar todo hoy.
+Aparta desde $3,000-5,000 y completa en hasta 90 días.
 Ideal para piezas de alto valor en Oro 14K.
 
-Manda “GRUPOVIP”.</div>
+Manda "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Aparta hoy, paga en 90 días</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Apartado flexible 3-5 mil.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Producto: CIAO CIAO MX editorial product shot, 14k gold necklace resting on a clean calendar page with no text, soft daylight, 85mm, f/2.8.
+Branding: matte black box with gold-foil logo beside the necklace.
+Mood: time-friendly luxury, 4:5.
+Negative prompt: readable text, clutter, watermark.
+
+2) Lifestyle: CIAO CIAO MX modern desk scene, elegant planner, coffee, and 14k gold ring on a velvet tray, warm side light, 50mm, f/2.
+Branding: logo card tucked under the tray.
+Mood: planned purchase, 4:5.
+Negative prompt: messy desk, glare, watermark.
+
+3) Emocional: CIAO CIAO MX two-stage reveal, one jewelry box open and one closed in the background, 14k gold bracelet highlighted, soft spotlight, 70mm, f/4.
+Mood: reserve today, finish later, 4:5.
+Negative prompt: cheap materials, overexposure, watermark.
+
+4) Packaging: CIAO CIAO MX editorial unboxing, matte black box half open on ivory velvet, second box nearby, warm spotlight, 50mm, f/2.8.
+Branding: gold-foil logo visible.
+Mood: flexible luxury, 4:5.
+Negative prompt: clutter, distorted logo, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">5. Regalo Premium</div>
-              <span class="copy-tag">Regalo</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-05">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 05</div>
+                <div class="ad-title">Regalo Premium</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag">Regalo</span>
+                <button class="copy-btn secondary" data-copy-group="ad-05">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">Regalos que hablan de buen gusto.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">Regalos que hablan de buen gusto.
 Anillos, aretes, pulseras, collares y tennis en Oro 14K con descuento real.
 Envío asegurado en México.
 
-Solicita acceso con “GRUPOVIP”.</div>
+Solicita acceso con "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Regalo premium en Oro 14K</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Envío gratis asegurado.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Producto: CIAO CIAO MX editorial product shot, 14k gold ring on ivory silk with a black ribbon, soft glow, 85mm, f/2.8.
+Branding: gold-foil logo card near the ring.
+Mood: refined gifting, 4:5.
+Negative prompt: harsh glare, clutter, watermark.
+
+2) Lifestyle: CIAO CIAO MX luxury gifting moment, hands exchanging a matte black jewelry box with gold-foil logo, candlelit dinner, shallow depth of field, 50mm.
+Mood: intimate celebration, 4:5.
+Negative prompt: messy table, cheap materials, watermark.
+
+3) Emocional: CIAO CIAO MX romantic editorial, close-up of hands with 14k gold bracelet touching, warm bokeh lights, cinematic glow, 85mm, f/1.8.
+Branding: logo box softly blurred in background.
+Mood: anniversary gift, 4:5.
+Negative prompt: overexposed, clutter, watermark.
+
+4) Packaging: CIAO CIAO MX gift-ready flat lay, matte black box with gold-foil logo, ribbon and tag on ivory paper, soft top light, 50mm.
+Mood: premium present, 4:5.
+Negative prompt: cheap textures, glare, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">6. Confianza Total</div>
-              <span class="copy-tag">Confianza</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-06">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 06</div>
+                <div class="ad-title">Confianza Total</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag">Confianza</span>
+                <button class="copy-btn secondary" data-copy-group="ad-06">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">Oro 14K, garantía de por vida y certificado.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">Oro 14K, certificado y garantía de por vida.
 Envío gratis asegurado a todo México.
-Atención directa por WhatsApp.
+Atención directa por WhatsApp, sin intermediarios.
 
-Escribe “GRUPOVIP”.</div>
+Escribe "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Garantía de por vida</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Oro 14K con certificado.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Producto: CIAO CIAO MX ultra-macro craftsmanship shot, 14k gold clasp with hallmark detail, micro polish texture, 100mm macro, f/8.
+Lighting: precise strip light with soft fill.
+Branding: black tag with CIAO CIAO MX logo near clasp.
+Mood: verified quality, 4:5.
+Negative prompt: blur, noise, watermark.
+
+2) Lifestyle: CIAO CIAO MX secure shipping scene, 14k gold jewelry on ivory tissue beside a premium shipping box, soft diffused light, 50mm.
+Branding: logo on the box, crisp and legible.
+Mood: safe delivery, 4:5.
+Negative prompt: messy packaging, cheap look, watermark.
+
+3) Emocional: CIAO CIAO MX editorial trust still life, certificate card with a 14k gold ring on velvet, warm spotlight, 85mm, f/2.8.
+Branding: gold-foil logo on the certificate.
+Mood: long-term confidence, 4:5.
+Negative prompt: readable text, glare, watermark.
+
+4) Packaging: CIAO CIAO MX premium box close-up, matte black with gold-foil logo, subtle texture, soft side light, 70mm, f/4.
+Mood: assurance and quality, 4:5.
+Negative prompt: scuffs, distortion, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">7. Ahorro Inteligente</div>
-              <span class="copy-tag">Valor</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-07">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 07</div>
+                <div class="ad-title">Ahorro Inteligente</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag">Valor</span>
+                <button class="copy-btn secondary" data-copy-group="ad-07">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">Descuento real 30–50% sin bajar calidad.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">Descuento real 30-50% sin bajar calidad.
 Curaduría diaria de piezas de alto valor.
 Acceso privado, sin spam.
 
-Escribe “GRUPOVIP”.</div>
+Escribe "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Ahorro inteligente 30-50%</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Curaduría diaria de piezas.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Producto: CIAO CIAO MX editorial curated set, 14k gold ring, bracelet, and earrings on black marble with precise spacing, soft top light, 50mm, f/8.
+Branding: subtle gold-foil logo card.
+Mood: premium value, 4:5.
+Negative prompt: clutter, watermark.
+
+2) Lifestyle: CIAO CIAO MX modern luxury desk, elegant woman reviewing a minimalist notebook, 14k gold bracelet visible, warm window light, 85mm, f/2.8.
+Branding: logo box on the desk edge.
+Mood: smart choice, 4:5.
+Negative prompt: messy desk, harsh light, watermark.
+
+3) Emocional: CIAO CIAO MX editorial self-gift scene, woman admiring her 14k gold ring in a mirror, soft ambient light, 50mm, f/2.
+Branding: open box with logo visible.
+Mood: self-reward, 4:5.
+Negative prompt: clutter, low-res, watermark.
+
+4) Packaging: CIAO CIAO MX minimal value story, two matte black boxes aligned with one open showing a 14k gold bracelet, soft gradient light, 70mm, f/4.
+Mood: more for less, 4:5.
+Negative prompt: cheap textures, glare, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">8. Ofertas Diarias</div>
-              <span class="copy-tag">Diario</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-08">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 08</div>
+                <div class="ad-title">Ofertas Diarias</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag">Diario</span>
+                <button class="copy-btn secondary" data-copy-group="ad-08">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">Cinco ofertas nuevas cada día.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">Cinco ofertas nuevas cada día.
 Piezas seleccionadas, disponibilidad limitada.
 Acceso solo para compradores serios.
 
-Manda “GRUPOVIP”.</div>
+Manda "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">5 ofertas nuevas cada día</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Acceso con filtro y aprobación.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Producto: CIAO CIAO MX daily drop tray, five 14k gold pieces arranged in a row on black silk, controlled highlights, 90mm, f/4.
+Branding: logo card at the edge.
+Mood: daily release, 4:5.
+Negative prompt: clutter, watermark.
+
+2) Lifestyle: CIAO CIAO MX editorial morning scene, woman holding coffee cup, 14k gold bracelet catching soft sunlight, warm neutral palette, 50mm, f/2.
+Branding: logo box subtly placed on the table.
+Mood: everyday luxury, 4:5.
+Negative prompt: messy table, low-res, watermark.
+
+3) Emocional: CIAO CIAO MX unboxing moment, hands opening a matte black box revealing a 14k gold necklace, soft glow, 50mm, f/2.8.
+Branding: gold-foil logo visible.
+Mood: limited stock reveal, 4:5.
+Negative prompt: clutter, cheap materials, watermark.
+
+4) Packaging: CIAO CIAO MX editorial flat lay, curated set of jewelry on black marble next to a clean daily planner without text, soft top light, 50mm, f/8.
+Mood: daily ritual, 4:5.
+Negative prompt: readable text, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">9. Tennis & Clásicos</div>
-              <span class="copy-tag">Producto</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-09">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 09</div>
+                <div class="ad-title">Tennis &amp; Clásicos</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag">Producto</span>
+                <button class="copy-btn secondary" data-copy-group="ad-09">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">Tennis, anillos y collares con precio VIP.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">Tennis, anillos y collares con precio VIP.
 Oro 14K, acabados finos y garantía de por vida.
 Pago flexible y envío seguro.
 
-Escribe “GRUPOVIP”.</div>
+Escribe "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Tennis, anillos y collares</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Piezas clásicas en Oro 14K.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Producto: CIAO CIAO MX editorial luxury catalog, 14k gold tennis bracelet arranged in an S-curve on black silk, elegant highlight line, 90mm macro, f/5.6.
+Branding: logo card at the edge, subtle.
+Mood: classic icon, 4:5.
+Negative prompt: noisy image, watermark.
+
+2) Producto: CIAO CIAO MX editorial close-up, 14k gold ring and necklace on black marble with subtle veining, soft top light, 50mm, f/8.
+Branding: gold-foil logo card in frame.
+Mood: timeless set, 4:5.
+Negative prompt: clutter, watermark.
+
+3) Lifestyle: CIAO CIAO MX editorial portrait, model wearing a 14k gold tennis bracelet and rings, black silk blouse, soft rim light, 85mm, f/2.
+Branding: logo box in soft focus.
+Mood: classic elegance, 4:5.
+Negative prompt: harsh flash, watermark.
+
+4) Packaging: CIAO CIAO MX product unboxing, open matte black box with gold-foil logo revealing a tennis bracelet on ivory velvet, warm spotlight, 50mm, f/2.8.
+Mood: premium classic, 4:5.
+Negative prompt: cheap materials, glare, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">10. Testimonio</div>
-              <span class="copy-tag">Prueba</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-10">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 10</div>
+                <div class="ad-title">Testimonio</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag">Prueba</span>
+                <button class="copy-btn secondary" data-copy-group="ad-10">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">“Entré al grupo por una oferta y encontré la pieza exacta.
-Calidad real y trato directo.”
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">"Entré por una oferta y encontré la pieza exacta.
+Calidad real y trato directo."
 Si buscas joyería seria, pide acceso.
 
-Escribe “GRUPOVIP”.</div>
+Escribe "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Compradores reales, acceso real</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Atención directa por WhatsApp.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Lifestyle: CIAO CIAO MX UGC-style portrait, real customer in soft window light wearing 14k gold ring, holding a phone with screen blurred, 50mm, f/2.
+Branding: logo box on the table, subtle.
+Mood: authentic testimonial, 4:5.
+Negative prompt: harsh flash, watermark.
+
+2) Emocional: CIAO CIAO MX close-up of hands texting on a phone, 14k gold ring visible, warm ambient light, 85mm, f/2.
+Mood: direct contact, 4:5.
+Negative prompt: readable text, watermark.
+
+3) Producto: CIAO CIAO MX editorial product shot, 14k gold ring on black marble with soft reflections, 100mm macro, f/8.
+Branding: gold-foil logo card nearby.
+Mood: proven quality, 4:5.
+Negative prompt: fingerprints, glare, watermark.
+
+4) Packaging: CIAO CIAO MX unboxing on a clean tabletop, matte black box opening to reveal a 14k gold bracelet, soft spotlight, 50mm, f/2.8.
+Mood: honest reveal, 4:5.
+Negative prompt: clutter, cheap materials, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">11. Minimal</div>
-              <span class="copy-tag">Directo</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-11">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 11</div>
+                <div class="ad-title">Minimal</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag">Directo</span>
+                <button class="copy-btn secondary" data-copy-group="ad-11">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">Acceso privado a ofertas de Oro 14K.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">Acceso privado a ofertas de Oro 14K.
 5 piezas diarias. Envío asegurado. Pago flexible.
 Solo miembros aprobados.
 
-Escribe “GRUPOVIP”.</div>
+Escribe "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Acceso privado a Oro 14K</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Grupo silencioso: solo admin publica.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Producto: CIAO CIAO MX minimal product shot, 14k gold bracelet on matte black lacquer with mirror reflection, controlled highlights, 90mm, f/4.
+Branding: subtle embossed logo on tray.
+Mood: quiet luxury, 4:5.
+Negative prompt: harsh glare, watermark.
+
+2) Lifestyle: CIAO CIAO MX editorial portrait, model in neutral tones wearing a single 14k gold ring, soft background, 85mm, f/2.
+Branding: logo box in soft focus.
+Mood: minimal elegance, 4:5.
+Negative prompt: busy styling, watermark.
+
+3) Emocional: CIAO CIAO MX quiet morning detail, 14k gold bracelet catching soft window light on a clean sill, 85mm, f/2.8.
+Mood: calm and refined, 4:5.
+Negative prompt: clutter, noise, watermark.
+
+4) Packaging: CIAO CIAO MX minimal box study, matte black box with gold-foil logo centered on ivory surface, soft top light, 50mm, f/4.
+Mood: simple and premium, 4:5.
+Negative prompt: scuffs, glare, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">12. Legado</div>
-              <span class="copy-tag">Story</span>
-              <button class="copy-btn">Copiar</button>
+          <div class="card ad-card" data-ad="ad-12">
+            <div class="ad-header">
+              <div>
+                <div class="ad-label">Anuncio 12</div>
+                <div class="ad-title">Legado</div>
+              </div>
+              <div class="ad-actions">
+                <span class="copy-tag">Story</span>
+                <button class="copy-btn secondary" data-copy-group="ad-12">Copiar anuncio</button>
+              </div>
             </div>
-            <div class="copy-content">La joyería fina no es una compra rápida.
+            <div class="ad-grid">
+              <div class="copy-block">
+                <div class="copy-head">
+                  <div class="copy-title">Copy</div>
+                  <button class="copy-btn">Copiar</button>
+                </div>
+                <div class="copy-content">La joyería fina no es una compra rápida.
 Es una decisión con valor y duración.
 Si buscas piezas correctas a precio justo, este grupo es para ti.
 
-Manda “GRUPOVIP”.</div>
-          </div>
-        </div>
-      </section>
-
-
-      
-      <section id="headlines">
-        <div class="page-header">
-          <h2>Headlines (Titulares)</h2>
-          <p>Usa combinaciones cortas y claras.</p>
-        </div>
-
-        <button class="copy-all-btn" data-copy-all="headlines">Copiar TODOS los headlines</button>
-
-        <div class="grid-3 stagger">
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">1</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Acceso Maison a Oro 14K</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">2</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Lista privada de ofertas</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">3</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Curaduría diaria de 5 piezas</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">4</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Descuento real 30–50%</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">5</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Aparta con $3,000–$5,000</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">6</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Pago flexible hasta 90 días</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">7</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Envío asegurado en México</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">8</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Garantía de por vida</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">9</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Acceso por invitación</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">10</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Club de compradores serios</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">11</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Tennis, anillos y collares</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">12</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Solicita acceso GRUPOVIP</div></div>
-        </div>
-      </section>
-
-
-      
-      <section id="descriptions">
-        <div class="page-header">
-          <h2>Descripciones cortas</h2>
-          <p>Para la línea de descripción del anuncio.</p>
-        </div>
-
-        <button class="copy-all-btn" data-copy-all="descriptions">Copiar TODAS las descripciones</button>
-
-        <div class="grid-2 stagger">
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">1</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Grupo silencioso: solo admin publica.</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">2</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Acceso con filtro y aprobación.</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">3</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Oro 14K con certificado.</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">4</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Descuento real 30–50%.</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">5</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Envío gratis asegurado.</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">6</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Apartado flexible 3–5 mil.</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">7</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Ofertas diarias curadas.</div></div>
-          <div class="copy-block small"><div class="copy-head"><div class="copy-title">8</div><button class="copy-btn">Copiar</button></div><div class="copy-content">Atención directa por WhatsApp.</div></div>
-        </div>
-      </section>
-
-
-      
-      <section id="emotions">
-        <div class="page-header">
-          <h2>Prompts de emoción (para generar nuevos copies)</h2>
-          <p>Usa estos prompts en ChatGPT o tu IA favorita para variar el mensaje.</p>
-        </div>
-
-        <div class="stagger">
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">Exclusividad editorial</div>
-              <button class="copy-btn">Copiar</button>
-            </div>
-            <div class="copy-content">Escribe 5 variaciones de anuncios en español para CIAO CIAO MX (Oro 14K) con tono editorial tipo revista de moda. Enfatiza acceso por invitación y curaduría diaria. CTA: “Escribe GRUPOVIP”.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">Atelier y artesanía</div>
-              <button class="copy-btn">Copiar</button>
-            </div>
-            <div class="copy-content">Genera 5 copies que destaquen el trabajo artesanal, acabados finos y Oro 14K. Menciona certificado y garantía de por vida. CTA: “GRUPOVIP”.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">Legado y herencia</div>
-              <button class="copy-btn">Copiar</button>
-            </div>
-            <div class="copy-content">Crea 5 anuncios que hablen de piezas que duran toda la vida y se heredan. Mantén tono premium y sobrio. CTA: “Escribe GRUPOVIP”.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">Ahorro inteligente</div>
-              <button class="copy-btn">Copiar</button>
-            </div>
-            <div class="copy-content">Genera 5 copies con enfoque en descuento real 30–50% sin perder lujo ni calidad. CTA: “Escribe GRUPOVIP”.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">Regalo inolvidable</div>
-              <button class="copy-btn">Copiar</button>
-            </div>
-            <div class="copy-content">Escribe 5 copies que conecten joyería fina con regalos de aniversario, logro o auto-regalo. Tono elegante. CTA: “GRUPOVIP”.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">Logro personal</div>
-              <button class="copy-btn">Copiar</button>
-            </div>
-            <div class="copy-content">Crea 5 copies que evoquen logro personal y autoestima: “me lo merezco”. Oro 14K, pago flexible, acceso privado. CTA: “GRUPOVIP”.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">Urgencia elegante</div>
-              <button class="copy-btn">Copiar</button>
-            </div>
-            <div class="copy-content">Genera 5 anuncios con urgencia suave: ofertas diarias, stock limitado, sin presión agresiva. CTA: “Escribe GRUPOVIP”.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head">
-              <div class="copy-title">Confianza y seguridad</div>
-              <button class="copy-btn">Copiar</button>
-            </div>
-            <div class="copy-content">Escribe 5 anuncios centrados en confianza: Oro 14K, garantía de por vida, envío asegurado y atención directa. CTA: “GRUPOVIP”.</div>
-          </div>
-        </div>
-      </section>
-
-
-      
-      
-      <section id="prompts-producto">
-        <div class="page-header">
-          <h2>Prompts IA - Producto (Oro 14K)</h2>
-          <p>Editorial Vogue con detalle extremo y branding CIAO CIAO MX.</p>
-        </div>
-
-        <button class="copy-all-btn" data-copy-all="prompts-producto">Copiar TODOS los prompts</button>
-
-        <div class="stagger">
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">1. Anillo hero macro</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">Editorial high jewelry product shot for CIAO CIAO MX, 14k gold ring hero on black obsidian slab, controlled specular highlights, micro-texture visible, focus stacking for razor sharp detail, medium format camera, 100mm macro, f/8, ISO 100, 1/160s.
-Lighting: large softbox at 45 degrees, negative fill on opposite side, subtle rim light for edge separation.
-Composition: minimal with generous negative space, magazine cover aesthetic, 4:5.
-Branding: matte black jewelry box with gold-foil CIAO CIAO MX logo and matching brand card, logo legible but subtle.
-Color grade: onyx, champagne gold, warm ivory.
-Negative prompt: low-res, watermark, messy reflections, fingerprints, extra text, distortion.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">2. Aretes sobre pedestal</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX Vogue-inspired editorial product photo, pair of 14k gold earrings on sculptural ivory pedestal, black velvet backdrop, crisp shadow falloff, rich metal glow, medium format 85mm, f/4.
-Lighting: top softbox + gentle kicker to define silhouette, negative fill for contrast.
-Branding: CIAO CIAO MX logo embossed in gold on a matte black box in the background, softly out of focus.
-Style: museum-grade product styling, elegant negative space, 4:5.
-Negative prompt: harsh glare, clutter, unreadable logo, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">3. Tennis bracelet curva</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial luxury catalog, 14k gold tennis bracelet arranged in an S-curve on black silk, micro-sparkle controlled, elegant highlight line, 90mm macro, f/5.6.
-Lighting: diffused key + strip light for clean speculars, negative fill for depth.
-Branding: CIAO CIAO MX brand card with gold-foil logo placed at bottom edge, legible.
-Mood: high fashion magazine minimalism, 4:5.
-Negative prompt: noisy image, dull metal, dust, extra text, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">4. Collar en escultura</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX high jewelry editorial, 14k gold necklace draped over a sculptural stone form, moody spotlight, gentle bloom, rich shadow gradients, medium format 80mm, f/4.
-Lighting: soft key + subtle rim to separate from background.
-Branding: matte black CIAO CIAO MX box with gold logo placed behind sculpture, logo readable.
-Composition: dramatic vertical flow, Vogue-style luxury feature, 4:5.
-Negative prompt: overexposure, artifacts, fake text, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">5. Flat lay curado</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial flat lay, curated set of 14k gold rings, earrings, bracelet, necklace on black marble with subtle veining, top-down lighting with soft falloff, precise spacing, museum archive styling, 50mm lens, f/8.
-Branding: CIAO CIAO MX brand card and ribbon with gold-foil logo, tasteful placement.
-Palette: onyx, ivory, champagne gold.
-Negative prompt: clutter, busy background, watermark, low-res.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">6. Unboxing editorial</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial unboxing scene, matte black jewelry box with gold-foil CIAO CIAO MX logo, lid partially open revealing 14k gold necklace on ivory velvet, warm spotlight, soft shadows, cinematic depth, 50mm lens, f/2.8.
-Props: black tissue paper, minimal brand card, clean tabletop.
-Mood: Vogue product feature, gifting luxury, 4:5.
-Negative prompt: cheap materials, distorted logo, clutter, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">7. Macro de broche y sello</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX ultra-macro craftsmanship shot, 14k gold clasp with hallmark detail, micro-polish texture, focus stacking for ultra sharpness, 100mm macro, f/8, ISO 100.
-Lighting: precise strip light + soft fill to reveal metal grain.
-Branding: black tag with CIAO CIAO MX logo near clasp, legible.
-Aesthetic: technical luxury editorial, 4:5.
-Negative prompt: blur, noise, uneven lighting, fake text.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">8. Laca negra con reflejo</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial product scene, 14k gold bracelet on glossy black lacquer with mirror reflection, controlled highlights, deep shadows, minimal composition, medium format 90mm, f/4.
-Branding: CIAO CIAO MX embossed logo subtly etched on the lacquer tray, readable but discreet.
-Mood: silent luxury, Vogue-style minimalism, 4:5.
-Negative prompt: harsh glare, noisy image, extra text, watermark.</div>
-          </div>
-        </div>
-      </section>
-
-
-
-      
-      
-      <section id="prompts-lifestyle">
-        <div class="page-header">
-          <h2>Prompts IA - Lifestyle</h2>
-          <p>Editorial Vogue con estilo de alta joyería y narrativa premium.</p>
-        </div>
-
-        <button class="copy-all-btn" data-copy-all="prompts-lifestyle">Copiar TODOS los prompts</button>
-
-        <div class="stagger">
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">1. Retrato editorial con aretes</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX Vogue-inspired editorial portrait, sophisticated woman in black silk blouse, hair in elegant chignon, wearing 14k gold statement earrings, dramatic rim light outlining profile, deep black background, soft shadow gradients, 85mm lens, f/2.8.
-Branding: CIAO CIAO MX matte black box with gold-foil logo on a side table, subtly visible.
-Mood: high fashion, quiet power, 4:5.
-Negative prompt: harsh flash, plastic skin, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">2. Manos con anillo y revista</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial lifestyle, close-up of hands wearing a 14k gold ring resting on a fashion magazine and black marble table, soft window light, refined shadows, 50mm lens, f/2.8.
-Branding: CIAO CIAO MX brand card with gold-foil logo at the edge of the frame, legible.
-Mood: modern luxury, Vogue editorial still, 4:5.
-Negative prompt: clutter, messy nails, low-res.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">3. Noche de gala</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX high jewelry gala scene, elegant woman in black evening gown wearing 14k gold necklace and bracelet, warm bokeh lights, soft glamour, confident posture, 85mm lens, f/2.
-Branding: CIAO CIAO MX box softly blurred in the background with visible logo.
-Style: Vogue red carpet energy, 4:5.
-Negative prompt: over-saturation, harsh flash, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">4. Ritual frente al espejo</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial getting-ready scene, woman putting on 14k gold earrings in front of a vintage mirror, warm vanity lighting, soft glow, elegant interior, 50mm lens, f/2.
-Branding: CIAO CIAO MX jewelry box open on the vanity, gold-foil logo visible.
-Mood: intimate and refined, 4:5.
-Negative prompt: messy background, low quality, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">5. Collar sobre seda</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial close-up, layered 14k gold necklaces over an ivory silk blouse, soft directional light, delicate skin texture, minimal background, 85mm lens, f/2.8.
-Branding: CIAO CIAO MX brand card tucked near the collar, logo legible.
-Style: refined Vogue beauty detail, 4:5.
-Negative prompt: harsh glare, fake text, low-res.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">6. Regalo elegante</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX luxury gifting moment, hands exchanging a matte black jewelry box with gold-foil CIAO CIAO MX logo, warm candlelight, intimate dinner table, shallow depth of field, 50mm lens.
-Mood: Vogue storytelling, elegant and emotional, 4:5.
-Negative prompt: clutter, cheap materials, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">7. Editorial urbano nocturno</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial street-night portrait, model in tailored trench coat wearing 14k gold bracelet and rings, city bokeh, moody contrast, 85mm lens, f/1.8.
-Branding: CIAO CIAO MX brand tag attached to the bracelet, logo readable.
-Style: Vogue night editorial, 4:5.
-Negative prompt: neon overload, noise, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">8. Café de mañana</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial morning scene, woman holding a coffee cup, 14k gold bracelet catching soft sunlight, warm neutral palette, quiet luxury mood, 50mm lens, f/2.
-Branding: CIAO CIAO MX box subtly placed on the table, logo visible.
-Negative prompt: messy table, low-res, watermark.</div>
-          </div>
-        </div>
-      </section>
-
-
-
-      
-      
-      <section id="prompts-emocional">
-        <div class="page-header">
-          <h2>Prompts IA - Emocionales</h2>
-          <p>Storytelling editorial tipo Vogue con detalles de marca.</p>
-        </div>
-
-        <button class="copy-all-btn" data-copy-all="prompts-emocional">Copiar TODOS los prompts</button>
-
-        <div class="stagger">
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">1. Logro personal</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial achievement scene, woman in a minimalist office holding a 14k gold ring, soft daylight through blinds, calm confidence, medium format 80mm, f/2.8.
-Branding: CIAO CIAO MX jewelry box on desk, gold-foil logo legible.
-Mood: refined success, Vogue office editorial, 4:5.
-Negative prompt: clutter, harsh light, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">2. Aniversario íntimo</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX romantic editorial, candlelit dinner, close-up of hands with 14k gold bracelet touching, warm bokeh, cinematic glow, 85mm lens, f/1.8.
-Branding: CIAO CIAO MX box subtly placed on the table with visible logo.
-Mood: intimate luxury, 4:5.
-Negative prompt: overexposed, cheap props, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">3. Herencia madre e hija</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial heritage moment, mother placing a 14k gold necklace on daughter, warm soft light, intimate framing, focus on hands and jewelry, 50mm lens, f/2.
-Branding: CIAO CIAO MX brand card near the jewelry box, logo readable.
+Manda "GRUPOVIP".</div>
+              </div>
+              <div class="ad-side">
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Headline</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Piezas para toda la vida</div>
+                </div>
+                <div class="copy-block small">
+                  <div class="copy-head">
+                    <div class="copy-title">Descripción</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">Garantía de por vida incluida.</div>
+                </div>
+                <div class="copy-block">
+                  <div class="copy-head">
+                    <div class="copy-title">Prompts de imagen (4)</div>
+                    <button class="copy-btn">Copiar</button>
+                  </div>
+                  <div class="copy-content">1) Emocional: CIAO CIAO MX editorial heritage moment, mother placing a 14k gold necklace on daughter, warm soft light, intimate framing, 50mm, f/2.
+Branding: logo card near the jewelry box.
 Mood: timeless legacy, 4:5.
-Negative prompt: busy background, low-res, watermark.</div>
-          </div>
+Negative prompt: busy background, watermark.
 
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">4. Viaje y elegancia</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial travel scene, woman by a hotel window wearing 14k gold earrings, soft morning light, calm luxury mood, 85mm lens, f/2.8.
-Branding: CIAO CIAO MX jewelry box on the window ledge, logo visible.
-Mood: quiet escape, 4:5.
-Negative prompt: clutter, harsh light, watermark.</div>
-          </div>
+2) Producto: CIAO CIAO MX heirloom still life, 14k gold necklace on deep velvet inside a vintage box, soft spotlight, 85mm, f/2.8.
+Branding: subtle logo card, minimal.
+Mood: classic treasure, 4:5.
+Negative prompt: dust, clutter, watermark.
 
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">5. Auto-regalo</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial self-gift scene, woman admiring her 14k gold ring in a mirror, soft ambient light, serene expression, 50mm lens, f/2.
-Branding: CIAO CIAO MX box open on the vanity, logo visible.
-Mood: self-love and elegance, 4:5.
-Negative prompt: messy background, low-res, watermark.</div>
-          </div>
+3) Lifestyle: CIAO CIAO MX editorial getting-ready scene, woman putting on 14k gold earrings in front of a vintage mirror, warm vanity lighting, 50mm, f/2.
+Branding: logo box open on the vanity.
+Mood: timeless ritual, 4:5.
+Negative prompt: messy background, watermark.
 
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">6. Calma y luz dorada</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial quiet morning, 14k gold bracelet catching golden hour light by the window, dust particles in the beam, minimal interior, 85mm lens, f/2.8.
-Branding: CIAO CIAO MX card subtly visible on the sill, logo legible.
-Mood: serene luxury, 4:5.
-Negative prompt: oversharp, noise, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">7. Confianza en el envío</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial trust scene, 14k gold jewelry resting on ivory tissue beside a secure shipping box, careful packaging, soft diffused light, 50mm lens.
-Branding: CIAO CIAO MX logo on the box, premium materials, logo readable.
-Mood: safe and premium, 4:5.
-Negative prompt: messy packaging, cheap look, watermark.</div>
-          </div>
-
-          <div class="copy-block">
-            <div class="copy-head"><div class="copy-title">8. Celebración elegante</div><button class="copy-btn">Copiar</button></div>
-            <div class="copy-content">CIAO CIAO MX editorial celebration, women clinking champagne glasses, one wearing 14k gold bracelet and rings, warm bokeh lights, cinematic atmosphere, 85mm lens, f/1.8.
-Branding: CIAO CIAO MX box on a side table, logo visible.
-Mood: refined celebration, 4:5.
-Negative prompt: harsh flash, clutter, watermark.</div>
+4) Packaging: CIAO CIAO MX archival flat lay, matte black box with gold-foil logo, soft dried florals, ivory paper, 50mm, f/4.
+Mood: legacy keepsake, 4:5.
+Negative prompt: busy styling, glare, watermark.</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+
 
 
 
@@ -1773,20 +2096,53 @@ Con eso te confirmo el acceso.</div>
       return lines.map(line => line.slice(indent)).join("\n").trim();
     }
 
+    function flashCopied(btn) {
+      const original = btn.textContent;
+      btn.textContent = "Copiado";
+      btn.classList.add("copied");
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove("copied");
+      }, 1200);
+    }
+
+    function buildBlockText(block) {
+      const content = block.querySelector(".copy-content");
+      if (!content) return "";
+      const titleEl = block.querySelector(".copy-title");
+      const title = titleEl ? titleEl.innerText.trim() : "Contenido";
+      return `${title}\n${normalizeText(content.innerText)}`;
+    }
+
+    function buildAdText(ad) {
+      const label = ad.querySelector(".ad-label");
+      const title = ad.querySelector(".ad-title");
+      const header = [label?.innerText, title?.innerText].filter(Boolean).join(" - ");
+      const blocks = Array.from(ad.querySelectorAll(".copy-block"));
+      const body = blocks.map(buildBlockText).filter(Boolean).join("\n\n---\n\n");
+      return [header, body].filter(Boolean).join("\n\n");
+    }
+
     document.querySelectorAll(".copy-btn").forEach(btn => {
       btn.addEventListener("click", () => {
+        const groupId = btn.dataset.copyGroup;
+        if (groupId) {
+          const ad = document.querySelector(`[data-ad="${groupId}"]`);
+          if (!ad) return;
+          const text = buildAdText(ad);
+          if (!text) return;
+          navigator.clipboard.writeText(text).then(() => {
+            flashCopied(btn);
+          });
+          return;
+        }
+
         const block = btn.closest(".copy-block");
         const content = block ? block.querySelector(".copy-content") : null;
         if (!content) return;
         const text = normalizeText(content.innerText);
         navigator.clipboard.writeText(text).then(() => {
-          const original = btn.textContent;
-          btn.textContent = "Copiado";
-          btn.classList.add("copied");
-          setTimeout(() => {
-            btn.textContent = original;
-            btn.classList.remove("copied");
-          }, 1200);
+          flashCopied(btn);
         });
       });
     });
@@ -1796,16 +2152,16 @@ Con eso te confirmo el acceso.</div>
         const sectionId = btn.getAttribute("data-copy-all");
         const section = document.getElementById(sectionId);
         if (!section) return;
-        const blocks = Array.from(section.querySelectorAll(".copy-content"));
-        const joined = blocks.map(block => normalizeText(block.innerText)).join("\n\n---\n\n");
+        let joined = "";
+        if (sectionId === "ads") {
+          const ads = Array.from(section.querySelectorAll(".ad-card"));
+          joined = ads.map(buildAdText).filter(Boolean).join("\n\n====\n\n");
+        } else {
+          const blocks = Array.from(section.querySelectorAll(".copy-content"));
+          joined = blocks.map(block => normalizeText(block.innerText)).join("\n\n---\n\n");
+        }
         navigator.clipboard.writeText(joined).then(() => {
-          const original = btn.textContent;
-          btn.textContent = "Copiado";
-          btn.classList.add("copied");
-          setTimeout(() => {
-            btn.textContent = original;
-            btn.classList.remove("copied");
-          }, 1200);
+          flashCopied(btn);
         });
       });
     });
